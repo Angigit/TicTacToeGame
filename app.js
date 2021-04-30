@@ -10,6 +10,7 @@ function createBoard() {
   while (i < 100) {
     newDiv = document.createElement('div'); //létrehozunk egy új div elemet
     newDiv.className = 'cell'; //az új div elemhez hozzárendeljük a "cell" osztályt
+    newDiv.dataset.clicked = 'no';
     document.getElementById('row').appendChild(newDiv); //hozzáfűzzük az új div elemet a "row" id-val ellátott div-hez
     i++;
   }
@@ -28,6 +29,11 @@ function init() {
   document.querySelectorAll('.row .cell').forEach(item => {
     item.addEventListener('click', event => {
 
+      if(event.target.dataset.clicked === 'yes') {
+        return; //early return - nem fut tovább a függvény
+      }
+      event.target.dataset.clicked = 'yes';
+      
       event.target.textContent = playerMarks[activePlayer];
       nextPlayer();
       roundScore++;
@@ -73,7 +79,7 @@ function messages(message) {
 }
 
 function clearMessages() {
-  document.querySelector('.row').setAttribute('data-value', "");
+  document.querySelector('.row').setAttribute('data-value', '');
 }
 
 function clearActiveClass() {
@@ -91,8 +97,8 @@ function nextPlayer() {
   roundScore = 0;
 
   //toggle = ha aktív, akkor leveszi, ha nem, akkor ráteszi
-  document.querySelector(".player-1").classList.toggle("active");
-  document.querySelector(".player-2").classList.toggle("active");
+  document.querySelector('.player-1').classList.toggle('active');
+  document.querySelector('.player-2').classList.toggle('active');
 }
 
 function clearContent() {
