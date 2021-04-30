@@ -1,0 +1,58 @@
+A feladat leírása a következő:
+
+Böngészőben futtatható amőba játék írása, ahol ugyanabban a böngészőablakban fog játszani mindkét játékos.
+
+ 
+
+A játékszabály a következő:
+
+A pálya egy négyzetháló, amire a játékosok felváltva helyeznek el jeleket. Akinek először összejön egymás mellett vízszintesen, függőlegesen vagy átlósan 5 jel, az győzött.
+
+A jelek lehetnek kereszt és kör vagy különböző színű körök, rád bízzuk!
+
+ 
+
+A következőt szeretnénk látni:
+
+- egy 10x10-es négyzethálót, kezdetben üresen;
+
+- egy feliratot, ami jelzi melyik játékos léphet következőnek, ez természetesen változzon minden lépés után;
+
+- a játékosok a már foglalt mezőkre ne tehessenek jelet csak üres mezőre;
+
+- ha valamelyik játékos elérte az 5 egymás melletti jelet a játék érjen véget (ne engedjen több lépést) és írja ki a győztest;
+
+- gombnyomásra újra indítható legyen a játék az elejéről.
+
+ 
+
+Használható technológiák:
+
+Tökéletesen megfelel vanilla Javascript-ben HTML és CSS segítségével.
+
+Ha ismerős vagy valamilyen framework-ben (React, Angular, Vue) akkor nyugodtan használd azt, de nem elvárás!
+
+A megoldást töltsd fel a github-ra és küldd meg a hozzáférést a moso.peter@hmei.hu - ra.
+
+
+Mosó Péter email: moso.peter@hmei.hu; telefon: +36 30 259 8356
+
+ 
+
+Ha ezt túl könnyűnek találod és szeretnél kiemelkedni a többi jelentkező közül, akkor az alábbiakkal dobhatod fel az alkalmazást:
+
+- induláskor legyen megadható a pálya mérete, ne csak 10x10-es pályán legyen játszható;
+
+- lehessen kettőnél több játékos;
+
+- a játékosok neve kezdéskor megadható legyen;
+
+- a játékosok által használt jel kezdéskor megadható legyen.
+
+ 
+
+A feladat végrehajtásához szabadon használhatsz bármilyen segítséget, de a lényeg hogy önálló munka legyen. A feladatot az interjú során átfogjuk beszélni.
+
+ 
+
+Jó munkát kívánunk és várjuk az elkészült feladatokat!!!
