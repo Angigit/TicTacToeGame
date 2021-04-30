@@ -1,6 +1,6 @@
 
 //először deklaráljuk a változókat
-let activePlayer, clicked, step;
+let activePlayer, scores, roundScore;
 // [0] is player1 [1] is player2
 const playerMarks = ['O', 'X'];
 let newDiv;
@@ -16,34 +16,42 @@ function createBoard() {
 }
 
 function init() {
-  clicked = false;
-  step = 0;
   // első játékos kezd mindig
   activePlayer = 0;
+  roundScore = 0;
+  scores = [0, 0];
+
   document.querySelector('.player-1').classList.add('active');
   document.querySelector('.player-2').classList.remove('active');
 
   // https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
   document.querySelectorAll('.row .cell').forEach(item => {
     item.addEventListener('click', event => {
-      if (!clicked && activePlayer === playerMarks[0]) {
-        event.target.textContent = playerMarks[activePlayer];
-        clicked = true;
-      } else {
-        nextPlayer();
-        event.target.textContent = playerMarks[activePlayer];
-        clicked = false;
-      }
 
-      if (activePlayer === 0 && event.target.textContent !== "") {
+      event.target.textContent = playerMarks[activePlayer];
+      nextPlayer();
+      roundScore++;
+      scores[activePlayer] = scores[activePlayer] + roundScore;
+      
+      if (activePlayer === 1) {
         event.target.style.color = 'red';
-      } else {
+      } else {   
         event.target.style.color = 'green';
       }
 
-      // if (event.target.textContent === 'O') {
-      //   //messages('Vége a játéknak!');
-      // }
+      if (scores[activePlayer] > 5) {
+        if (activePlayer === 0) {
+          messages('Vége, az 1. játékos nyert!');
+          event.target.textContent = '';
+          clearActiveClass();
+        } else if (activePlayer === 1) {
+          messages('Vége, az 2. játékos nyert!');
+          event.target.textContent = '';
+          clearActiveClass();
+        }
+      } 
+
+      
 
       // changing the cell content:
       //event.target.textContent = playerMarks[activePlayer];
@@ -68,12 +76,19 @@ function clearMessages() {
   document.querySelector('.row').setAttribute('data-value', "");
 }
 
+function clearActiveClass() {
+  document.querySelector('.player-1').classList.remove('active');
+  document.querySelector('.player-2').classList.remove('active');
+}
+
 function nextPlayer() {
   if (activePlayer === 0) {
     activePlayer = 1;
   } else {
     activePlayer = 0;
   }
+
+  roundScore = 0;
 
   //toggle = ha aktív, akkor leveszi, ha nem, akkor ráteszi
   document.querySelector(".player-1").classList.toggle("active");
