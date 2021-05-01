@@ -1,201 +1,196 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  height: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: auto;
 }
 
 .clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 body {
-  background-color: transparent;
-  font-family: "Original Surfer", cursive;
-  font-weight: 400;
-  position: relative;
-  height: 100vh;
-  color: #444;
+    background-color: transparent;
+    font-family: 'Original Surfer', cursive;
+    font-weight: 400;
+    position: relative;
+    height: 100vh;
+    color: #444;
 }
 
 .header {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .title {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .button {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
 }
-
 .start-btn {
-  width: 8rem;
-  height: 3rem;
-  font-family: "Original Surfer", cursive;
-  font-weight: 400;
-  font-size: 20px;
-  text-transform: uppercase;
-  border: 1px solid rgba(0, 0, 0, 0.19);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 3px;
-  transition: 0.3s;
+    width: 8rem;
+    height: 3rem;
+    font-family: 'Original Surfer', cursive;
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: uppercase;
+    border: 1px solid rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 3px;
+    transition: 0.3s;
 }
 
 .start-btn:hover {
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.32);
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.32);
 }
 
 .player-1 {
-  font-size: 18px;
-  float: left;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 100;
-  margin: -20px 100px;
-  position: relative;
-  transition: 0.3s;
+    font-size: 18px;
+    float: left;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin: -20px 100px;
+    position: relative;
+    transition: 0.3s;
 }
 
 .player-2 {
-  font-size: 18px;
-  float: right;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 100;
-  margin: -20px 100px;
-  position: relative;
-  transition: 0.3s;
+    font-size: 18px;
+    float: right;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin: -20px 100px;
+    position: relative;
+    transition: 0.3s;
 }
 
-.active {
-  color: black;
-  font-weight: bold;
-  background-color: rgb(173, 139, 139);
-  border: 1px solid rgba(0, 0, 0, 0.32);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 3px;
-  padding: 2px;
+.active { 
+    color: black;
+    font-weight: bold;
+    background-color: rgb(173, 139, 139);
+    border: 1px solid rgba(0, 0, 0, 0.32);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 3px;
+    padding: 2px;
 }
-
-/* .active .player-name { font-weight: 300; }
-
-.active .player-name::after {
-    content: "";
-} */
 
 .row {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(10, 50px);
-  grid-template-rows: repeat(10, 45px);
-  grid-gap: 1px;
-  padding: 0;
-  margin-top: 50px;
-  position: relative;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 45px);
+    grid-gap: 1px;
+    padding: 0;
+    margin-top: 50px;
+    position: relative;
 }
 
 .row::before {
-  content: attr(data-value);
-  position: absolute;
-  margin-top: 8rem;
-  margin-left: 30%;
-  font-size: 40px;
-  font-weight: bold;
+    content: attr(data-value);
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .row::after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .row .cell {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ddd;
-  text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#ddd;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.19);
 }
 
-footer .span1 {
-  font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  float: left;
+footer .span1{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    float: left;
 }
 
-footer .span2 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  float: right;
+footer .span2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    float: right;
 }
+
 
 /* media queries */
 
-@media (max-width: 800px) {
-  .start-btn {
-    width: 7rem;
-    height: 3rem;
-    font-size: 18px;
-  }
+@media(max-width: 800px) {
+    .start-btn {
+        width: 7rem;
+        height: 3rem;
+        font-size: 18px;
+    }
 
-  .player-1 {
-    font-size: 16px;
-    letter-spacing: 1px;
-    margin: -20px 70px;
-  }
-
-  .player-2 {
-    font-size: 16px;
-    letter-spacing: 1px;
-    margin: -20px 70px;
-  }
+    .player-1 {
+        font-size: 16px;
+        letter-spacing: 1px;
+        margin: -20px 70px;
+    }
+    
+    .player-2 {
+        font-size: 16px;
+        letter-spacing: 1px;
+        margin: -20px 70px;
+    }
 }
 
-@media (max-width: 700px) {
-  .start-btn {
-    width: 6rem;
-    height: 3rem;
-    font-size: 15px;
-  }
+@media(max-width: 700px) {
+    .start-btn {
+        width: 6rem;
+        height: 3rem;
+        font-size: 15px;
+    }
 
-  .player-1 {
-    font-size: 14px;
-    margin: -20px 40px;
-  }
-
-  .player-2 {
-    font-size: 14px;
-    margin: -20px 40px;
-  }
+    .player-1 {
+        font-size: 14px;      
+        margin: -20px 40px;
+    }
+    
+    .player-2 {
+        font-size: 14px;
+        margin: -20px 40px;
+    }
 }
 
-@media (max-width: 600px) {
-  .start-btn {
-    width: 5rem;
-    height: 2rem;
-    font-size: 13px;
-  }
+@media(max-width: 600px) {
+    .start-btn {
+        width: 5rem;
+        height: 2rem;
+        font-size: 13px;
+    }
 
-  .player-1 {
-    font-size: 12px;
-    margin: -20px 30px;
-  }
-
-  .player-2 {
-    font-size: 12px;
-    margin: -20px 30px;
-  }
+    .player-1 {
+        font-size: 12px;      
+        margin: -20px 30px;
+    }
+    
+    .player-2 {
+        font-size: 12px;
+        margin: -20px 30px;
+    }
 }
