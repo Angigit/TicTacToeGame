@@ -5,6 +5,7 @@ let activePlayer, O, X;
 const playerMarks = ['O', 'X'];
 let newDiv;
 
+// tábla létrehozása
 function createBoard() {
   let i = 0;
   while (i < 100) {
@@ -16,6 +17,7 @@ function createBoard() {
   }
 }
 
+// játék kezdete
 function init() {
   // első játékos kezd mindig
   activePlayer = 0;
