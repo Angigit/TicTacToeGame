@@ -119,6 +119,7 @@ body {
     background-color:#ddd;
     text-align: center;
     border: 1px solid rgba(0, 0, 0, 0.19);
+    border-radius: 3px;
 }
 
 footer .span1{

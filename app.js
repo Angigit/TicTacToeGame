@@ -51,16 +51,16 @@ function init() {
       let win = false;
       if (O >= 6 || X >= 5) {
         win = true;
-      }
-      if (win && activePlayer === 0) {
-        messages('Vége a játéknak, az 1. játékos nyert!');
-        event.target.textContent = '';
-        clearActiveClass();
-      } else if (win && activePlayer === 1){
-        messages('Vége a játéknak, a 2. játékos nyert!');
-        event.target.textContent = '';
-        clearActiveClass();
-      }
+        if (win && activePlayer === 0) {
+          messages('Vége a játéknak, az 1. játékos nyert!');
+          event.target.textContent = '';
+          clearActiveClass();
+        } else {
+          messages('Vége a játéknak, a 2. játékos nyert!');
+          event.target.textContent = '';
+          clearActiveClass();
+        }
+      }  
     });
   });
 }
