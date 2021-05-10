@@ -32,7 +32,7 @@ body {
 .button {
     display: flex;
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 .start-btn {
     width: 8rem;
@@ -58,7 +58,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 100;
-    margin: -20px 100px;
+    margin: -30px 100px;
     position: relative;
     transition: 0.3s;
 }
@@ -69,7 +69,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 100;
-    margin: -20px 100px;
+    margin: -30px 100px;
     position: relative;
     transition: 0.3s;
 }
@@ -91,7 +91,7 @@ body {
     grid-template-rows: repeat(10, 45px);
     grid-gap: 1px;
     padding: 0;
-    margin-top: 50px;
+    margin-top: 30px;
     position: relative;
 }
 

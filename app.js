@@ -1,9 +1,12 @@
 
 //először deklaráljuk a változókat
-let activePlayer, O, X;
+let activePlayer;
 // [0] 1. játékos [1] 2. játékos
 const playerMarks = ['O', 'X'];
+const squares = [];
 let newDiv;
+let id;
+
 
 // tábla létrehozása
 function createBoard() {
@@ -12,6 +15,7 @@ function createBoard() {
     newDiv = document.createElement('div'); //létrehozunk egy új div elemet
     newDiv.className = 'cell'; //az új div elemhez hozzárendeljük a "cell" osztályt
     newDiv.dataset.clicked = 'no'; //beállítunk dataset-el egy clicked tulajdonságot, amelynek a kezdőértéke 'no' 
+    newDiv.dataset.id = i;
     document.getElementById('row').appendChild(newDiv); //hozzáfűzzük az új div elemet a "row" id-val ellátott div-hez
     i++;
   }
@@ -20,9 +24,7 @@ function createBoard() {
 // játék kezdete
 function init() {
   // első játékos kezd mindig
-  activePlayer = 0;
-  O = 0;
-  X = 0;
+  activePlayer = playerMarks[0];
 
   document.querySelector('.player-1').classList.add('active');
   document.querySelector('.player-2').classList.remove('active');
@@ -37,30 +39,27 @@ function init() {
       }
       event.target.dataset.clicked = 'yes';
 
-      event.target.textContent = playerMarks[activePlayer];
-      nextPlayer();
-
-      if (activePlayer === 1) {
-        event.target.style.color = 'red';
-        O++;
-      } else {
-        event.target.style.color = 'green';
-        X++;
-      }
-
-      let win = false;
-      if (O >= 6 || X >= 5) {
-        win = true;
-        if (win && activePlayer === 0) {
-          messages('Vége a játéknak, az 1. játékos nyert!');
-          event.target.textContent = '';
-          clearActiveClass();
+      id = parseInt(event.target.dataset.id);
+      
+      if (!squares[id]) {
+        squares[id] = activePlayer;
+        event.target.textContent = activePlayer;
+        if (activePlayer === playerMarks[0]) {
+          event.target.style.color = 'red';
         } else {
-          messages('Vége a játéknak, a 2. játékos nyert!');
-          event.target.textContent = '';
-          clearActiveClass();
+          event.target.style.color = 'green';
         }
-      }  
+        console.log(id, activePlayer);
+      } 
+
+      //activePlayer = activePlayer === playerMarks[0] ? playerMarks[1] : playerMarks[0];
+      nextPlayer();
+      
+      if (playerWon()) {
+        messages(`Vége a játéknak, ${activePlayer} nyert!`);
+        event.target.textContent = '';
+        clearActiveClass();
+      } 
     });
   });
 }
@@ -73,6 +72,82 @@ document.addEventListener('DOMContentLoaded', () => {
   // applikáció indítása
   init();
 });
+
+// nyerési lehetőségek
+function playerWon() {
+  if (squares[0] === activePlayer) {
+    if (squares[1] === activePlayer && squares[2] === activePlayer && squares[3] === activePlayer && squares[4] === activePlayer) {
+      return true;
+    }
+    if (squares[10] === activePlayer && squares[20] === activePlayer && squares[30] === activePlayer && squares[40] === activePlayer) {
+      return true;
+    }
+    if (squares[11] === activePlayer && squares[22] === activePlayer && squares[33] === activePlayer && squares[44] === activePlayer) {
+      return true;
+    }
+  }
+  if (squares[1] === activePlayer) {
+    if (squares[2] === activePlayer && squares[3] === activePlayer && squares[4] === activePlayer && squares[5] === activePlayer) {
+      return true;
+    }
+    if (squares[11] === activePlayer && squares[21] === activePlayer && squares[31] === activePlayer && squares[41] === activePlayer) {
+      return true;
+    }
+    if (squares[12] === activePlayer && squares[23] === activePlayer && squares[34] === activePlayer && squares[45] === activePlayer) {
+      return true;
+    }
+  }
+  if (squares[2] === activePlayer) {
+    if (squares[3] === activePlayer && squares[4] === activePlayer && squares[5] === activePlayer && squares[6] === activePlayer) {
+      return true;
+    }
+    if (squares[12] === activePlayer && squares[22] === activePlayer && squares[32] === activePlayer && squares[42] === activePlayer) {
+      return true;
+    }
+    if (squares[13] === activePlayer && squares[24] === activePlayer && squares[35] === activePlayer && squares[46] === activePlayer) {
+      return true;
+    }
+  }
+  if (squares[3] === activePlayer) {
+    if (squares[4] === activePlayer && squares[5] === activePlayer && squares[6] === activePlayer && squares[7] === activePlayer) {
+      return true;
+    }
+    if (squares[13] === activePlayer && squares[23] === activePlayer && squares[33] === activePlayer && squares[43] === activePlayer) {
+      return true;
+    }
+    if (squares[14] === activePlayer && squares[25] === activePlayer && squares[36] === activePlayer && squares[47] === activePlayer) {
+      return true;
+    }
+  }
+  if (squares[4] === activePlayer) {
+    if (squares[5] === activePlayer && squares[6] === activePlayer && squares[7] === activePlayer && squares[8] === activePlayer) {
+      return true;
+    }
+    if (squares[14] === activePlayer && squares[24] === activePlayer && squares[34] === activePlayer && squares[44] === activePlayer) {
+      return true;
+    }
+    if (squares[15] === activePlayer && squares[26] === activePlayer && squares[37] === activePlayer && squares[48] === activePlayer) {
+      return true;
+    }
+    if (squares[13] === activePlayer && squares[22] === activePlayer && squares[31] === activePlayer && squares[40] === activePlayer) {
+      return true;
+    }
+  }
+  if (squares[5] === activePlayer) {
+    if (squares[6] === activePlayer && squares[7] === activePlayer && squares[8] === activePlayer && squares[9] === activePlayer) {
+      return true;
+    }
+    if (squares[15] === activePlayer && squares[25] === activePlayer && squares[35] === activePlayer && squares[45] === activePlayer) {
+      return true;
+    }
+    if (squares[16] === activePlayer && squares[27] === activePlayer && squares[38] === activePlayer && squares[49] === activePlayer) {
+      return true;
+    }
+    if (squares[14] === activePlayer && squares[23] === activePlayer && squares[32] === activePlayer && squares[41] === activePlayer) {
+      return true;
+    }
+  }
+}
 
 // lehetséges megoldások
 function calculate() {
@@ -145,10 +220,10 @@ function clearActiveClass() {
 
 // következő játékos
 function nextPlayer() {
-  if (activePlayer === 0) {
-    activePlayer = 1;
+  if (activePlayer === playerMarks[0]) {
+    activePlayer = playerMarks[1];
   } else {
-    activePlayer = 0;
+    activePlayer = playerMarks[0];
   }
 
   // toggle = ha aktív, akkor leveszi, ha nem, akkor ráteszi
@@ -164,9 +239,9 @@ function clearContent() {
 // ha rákatttintunk a start gombra
 document.querySelector('.start-btn').addEventListener('click', () => {
   clearContent();
+  clearMessages();
   createBoard();
   init();
-  clearMessages();
 });
 
 
